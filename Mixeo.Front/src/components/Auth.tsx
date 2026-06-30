@@ -6,7 +6,7 @@ interface AuthProps {
 
 export const Auth: React.FC<AuthProps> = ({ onLoginSuccess }) => {
   const [isRegister, setIsRegister] = useState(false);
-  const [username, setUsername] = useState('rohy');
+  const [username, setUsername] = useState('miojoro');
   const [password, setPassword] = useState('rohy');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
