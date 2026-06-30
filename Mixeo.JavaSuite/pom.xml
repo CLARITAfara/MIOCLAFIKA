@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.mixeo</groupId>
+    <artifactId>mixeo-java-suite</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <name>Mixeo.JavaSuite</name>
+    <description>Port Java du pipeline Mixeo : common (lib) + uploader (worker) + desktop (JavaFX)</description>
+
+    <modules>
+        <module>common</module>
+        <module>uploader</module>
+        <module>desktop</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.release>17</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <amqp.version>5.21.0</amqp.version>
+        <jackson.version>2.17.2</jackson.version>
+        <jaudiotagger.version>3.0.1</jaudiotagger.version>
+        <javafx.version>17.0.12</javafx.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.rabbitmq</groupId>
+                <artifactId>amqp-client</artifactId>
+                <version>${amqp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.jthink</groupId>
+                <artifactId>jaudiotagger</artifactId>
+                <version>${jaudiotagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mixeo</groupId>
+                <artifactId>mixeo-common</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

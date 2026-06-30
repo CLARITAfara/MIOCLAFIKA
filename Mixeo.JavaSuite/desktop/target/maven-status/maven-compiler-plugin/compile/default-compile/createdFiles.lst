@@ -1,0 +1,4 @@
+com\mixeo\desktop\MixeoDesktopApp.class
+com\mixeo\desktop\service\MetadataService.class
+com\mixeo\desktop\model\Mp3FileItem.class
+com\mixeo\desktop\service\FolderWatcherService.class

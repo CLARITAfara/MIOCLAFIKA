@@ -1,0 +1,183 @@
+[2026-06-30 09:17:30] [program3] Listening on queue: mp3.metadata
+[2026-06-30 09:18:10] [program2] Program 2 worker starting...
+[2026-06-30 09:18:10] [program2] Program 2 worker is listening on queue: mp3.files
+[2026-06-30 09:19:09] [program2] Program 2 worker starting...
+[2026-06-30 09:19:10] [program2] Program 2 worker is listening on queue: mp3.files
+[2026-06-30 09:45:26] [program2] Program 2 worker starting...
+[2026-06-30 09:45:26] [program2] Program 2 worker is listening on queue: mp3.files
+[2026-06-30 09:46:09] [program1] [BLACKLIST] Suppression du fichier : C:\Users\bruel\Documents\mp3\Antanambao.MP3 (Artiste/Genre banni: Bekoto Augustin)
+[2026-06-30 09:46:09] [program1] [BLACKLIST] Suppression du fichier : C:\Users\bruel\Documents\mp3\IAO.MP3 (Artiste/Genre banni: ROSSY)
+[2026-06-30 09:46:09] [program1] --- Started folder scan: C:\Users\bruel\Documents\mp3 ---
+[2026-06-30 09:46:09] [Program1] [RABBITMQ] Requesting publish for file path: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:46:09] [RabbitMQ] [RABBITMQ] Publish to 'mp3.files': C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:46:09] [Program2] [RABBITMQ] Consume from queue: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:46:09] [Program1] [RABBITMQ] Successfully requested publish for: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:46:09] [program1] --- Folder scan complete. Found 1 files. ---
+[2026-06-30 09:46:10] [program2] Extracted metadata for: C:\Users\bruel\Documents\mp3\Ankino.mp3 (Title: 'Bodo', Artist: '')
+[2026-06-30 09:46:10] [RabbitMQ] [RABBITMQ] Publish to 'mp3.metadata': {"path":"C:\\Users\\bruel\\Documents\\mp3\\Ankino.mp3","title":"Bodo","album":"Album Bodo","genre":"Pop","artist":"","duration":231,"year":2000}
+[2026-06-30 09:46:10] [Program2] [RABBITMQ] Publish metadata to mp3.metadata for: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:46:10] [program3] [RABBITMQ] Consume metadata for: Bodo (File: C:\Users\bruel\Documents\mp3\Ankino.mp3)
+[2026-06-30 09:46:10] [program3] API POST Bodo - Status: 200
+[2026-06-30 09:46:11] [program3] ✅ Upload success: Bodo
+[2026-06-30 09:46:11] [program3] 🗑 Deleted original file: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:46:11] [program3] [RABBITMQ] ACK message for: Bodo
+[2026-06-30 09:46:26] [program1] --- Started folder scan: C:\Users\bruel\Documents\mp3 ---
+[2026-06-30 09:46:26] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 09:47:26] [program1] --- Started folder scan: C:\Users\bruel\Documents\mp3 ---
+[2026-06-30 09:47:26] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 09:48:26] [program1] [BLACKLIST] Suppression du fichier : C:\Users\bruel\Documents\mp3\Antanambao.MP3 (Artiste/Genre banni: Bekoto Augustin)
+[2026-06-30 09:48:26] [program1] [BLACKLIST] Suppression du fichier : C:\Users\bruel\Documents\mp3\IAO.MP3 (Artiste/Genre banni: ROSSY)
+[2026-06-30 09:48:26] [program1] --- Started folder scan: C:\Users\bruel\Documents\mp3 ---
+[2026-06-30 09:48:26] [Program1] [RABBITMQ] Requesting publish for file path: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:48:26] [RabbitMQ] [RABBITMQ] Publish to 'mp3.files': C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:48:26] [Program1] [RABBITMQ] Successfully requested publish for: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:48:26] [program1] --- Folder scan complete. Found 1 files. ---
+[2026-06-30 09:48:26] [Program2] [RABBITMQ] Consume from queue: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:48:26] [program2] Extracted metadata for: C:\Users\bruel\Documents\mp3\Ankino.mp3 (Title: 'Bodo', Artist: '')
+[2026-06-30 09:48:26] [RabbitMQ] [RABBITMQ] Publish to 'mp3.metadata': {"path":"C:\\Users\\bruel\\Documents\\mp3\\Ankino.mp3","title":"Bodo","album":"Album Bodo","genre":"Pop","artist":"","duration":231,"year":2000}
+[2026-06-30 09:48:26] [program3] [RABBITMQ] Consume metadata for: Bodo (File: C:\Users\bruel\Documents\mp3\Ankino.mp3)
+[2026-06-30 09:48:26] [Program2] [RABBITMQ] Publish metadata to mp3.metadata for: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:48:27] [program3] API POST Bodo - Status: 200
+[2026-06-30 09:48:27] [program3] ✅ Upload success: Bodo
+[2026-06-30 09:48:27] [program3] 🗑 Deleted original file: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:48:27] [program3] [RABBITMQ] ACK message for: Bodo
+[2026-06-30 09:48:35] [program1] --- Started folder scan: C:\Users\bruel\Documents\mp3 ---
+[2026-06-30 09:48:35] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 09:49:27] [program2] Program 2 worker starting...
+[2026-06-30 09:49:28] [program2] Program 2 worker is listening on queue: mp3.files
+[2026-06-30 09:49:47] [program1] [BLACKLIST] Suppression du fichier : C:\Users\bruel\Documents\mp3\Antanambao.MP3 (Artiste/Genre banni: Bekoto Augustin)
+[2026-06-30 09:49:47] [program1] [BLACKLIST] Suppression du fichier : C:\Users\bruel\Documents\mp3\IAO.MP3 (Artiste/Genre banni: ROSSY)
+[2026-06-30 09:49:47] [program1] --- Started folder scan: C:\Users\bruel\Documents\mp3 ---
+[2026-06-30 09:49:47] [Program1] [RABBITMQ] Requesting publish for file path: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:49:47] [RabbitMQ] [RABBITMQ] Publish to 'mp3.files': C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:49:47] [Program2] [RABBITMQ] Consume from queue: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:49:47] [Program1] [RABBITMQ] Successfully requested publish for: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:49:47] [program1] --- Folder scan complete. Found 1 files. ---
+[2026-06-30 09:49:47] [program2] Extracted metadata for: C:\Users\bruel\Documents\mp3\Ankino.mp3 (Title: 'Bodo', Artist: '')
+[2026-06-30 09:49:48] [RabbitMQ] [RABBITMQ] Publish to 'mp3.metadata': {"path":"C:\\Users\\bruel\\Documents\\mp3\\Ankino.mp3","title":"Bodo","album":"Album Bodo","genre":"Pop","artist":"","duration":231,"year":2000}
+[2026-06-30 09:49:48] [program3] [RABBITMQ] Consume metadata for: Bodo (File: C:\Users\bruel\Documents\mp3\Ankino.mp3)
+[2026-06-30 09:49:48] [Program2] [RABBITMQ] Publish metadata to mp3.metadata for: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:49:48] [program3] API POST Bodo - Status: 200
+[2026-06-30 09:49:48] [program3] ✅ Upload success: Bodo
+[2026-06-30 09:49:48] [program3] 🗑 Deleted original file: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:49:48] [program3] [RABBITMQ] ACK message for: Bodo
+[2026-06-30 09:50:27] [program1] --- Started folder scan: C:\Users\bruel\Documents\mp3 ---
+[2026-06-30 09:50:27] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 09:51:27] [program1] [BLACKLIST] Suppression du fichier : C:\Users\bruel\Documents\mp3\Antanambao.MP3 (Artiste/Genre banni: Bekoto Augustin)
+[2026-06-30 09:51:27] [program1] [BLACKLIST] Suppression du fichier : C:\Users\bruel\Documents\mp3\IAO.MP3 (Artiste/Genre banni: ROSSY)
+[2026-06-30 09:51:28] [program1] --- Started folder scan: C:\Users\bruel\Documents\mp3 ---
+[2026-06-30 09:51:28] [Program1] [RABBITMQ] Requesting publish for file path: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:51:28] [RabbitMQ] [RABBITMQ] Publish to 'mp3.files': C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:51:28] [Program2] [RABBITMQ] Consume from queue: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:51:28] [program2] Extracted metadata for: C:\Users\bruel\Documents\mp3\Ankino.mp3 (Title: 'Bodo', Artist: '')
+[2026-06-30 09:51:28] [RabbitMQ] [RABBITMQ] Publish to 'mp3.metadata': {"path":"C:\\Users\\bruel\\Documents\\mp3\\Ankino.mp3","title":"Bodo","album":"Album Bodo","genre":"Pop","artist":"","duration":231,"year":2000}
+[2026-06-30 09:51:28] [program3] [RABBITMQ] Consume metadata for: Bodo (File: C:\Users\bruel\Documents\mp3\Ankino.mp3)
+[2026-06-30 09:51:28] [Program2] [RABBITMQ] Publish metadata to mp3.metadata for: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:51:28] [Program1] [RABBITMQ] Successfully requested publish for: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:51:28] [program1] --- Folder scan complete. Found 1 files. ---
+[2026-06-30 09:51:28] [program3] API POST Bodo - Status: 200
+[2026-06-30 09:51:28] [program3] ✅ Upload success: Bodo
+[2026-06-30 09:51:28] [program3] 🗑 Deleted original file: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:51:28] [program3] [RABBITMQ] ACK message for: Bodo
+[2026-06-30 09:52:28] [program1] [BLACKLIST] Suppression du fichier : C:\Users\bruel\Documents\mp3\Antanambao.MP3 (Artiste/Genre banni: Bekoto Augustin)
+[2026-06-30 09:52:28] [program1] [BLACKLIST] Suppression du fichier : C:\Users\bruel\Documents\mp3\IAO.MP3 (Artiste/Genre banni: ROSSY)
+[2026-06-30 09:52:28] [program1] --- Started folder scan: C:\Users\bruel\Documents\mp3 ---
+[2026-06-30 09:52:28] [Program1] [RABBITMQ] Requesting publish for file path: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:52:28] [RabbitMQ] [RABBITMQ] Publish to 'mp3.files': C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:52:28] [Program2] [RABBITMQ] Consume from queue: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:52:28] [program2] Extracted metadata for: C:\Users\bruel\Documents\mp3\Ankino.mp3 (Title: 'Bodo', Artist: '')
+[2026-06-30 09:52:28] [RabbitMQ] [RABBITMQ] Publish to 'mp3.metadata': {"path":"C:\\Users\\bruel\\Documents\\mp3\\Ankino.mp3","title":"Bodo","album":"Album Bodo","genre":"Pop","artist":"","duration":231,"year":2000}
+[2026-06-30 09:52:28] [program3] [RABBITMQ] Consume metadata for: Bodo (File: C:\Users\bruel\Documents\mp3\Ankino.mp3)
+[2026-06-30 09:52:28] [Program2] [RABBITMQ] Publish metadata to mp3.metadata for: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:52:28] [Program1] [RABBITMQ] Successfully requested publish for: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:52:28] [program1] --- Folder scan complete. Found 1 files. ---
+[2026-06-30 09:52:28] [program3] API POST Bodo - Status: 200
+[2026-06-30 09:52:28] [program3] ✅ Upload success: Bodo
+[2026-06-30 09:52:28] [program3] 🗑 Deleted original file: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:52:28] [program3] [RABBITMQ] ACK message for: Bodo
+[2026-06-30 09:52:52] [program1] [BLACKLIST] Suppression du fichier : C:\Users\bruel\Documents\mp3\Antanambao.MP3 (Artiste/Genre banni: Bekoto Augustin)
+[2026-06-30 09:52:52] [program1] [BLACKLIST] Suppression du fichier : C:\Users\bruel\Documents\mp3\IAO.MP3 (Artiste/Genre banni: ROSSY)
+[2026-06-30 09:52:52] [program1] --- Started folder scan: C:\Users\bruel\Documents\mp3 ---
+[2026-06-30 09:52:52] [Program1] [RABBITMQ] Requesting publish for file path: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:52:52] [RabbitMQ] [RABBITMQ] Publish to 'mp3.files': C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:52:52] [Program2] [RABBITMQ] Consume from queue: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:52:52] [Program1] [RABBITMQ] Successfully requested publish for: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:52:52] [program1] --- Folder scan complete. Found 1 files. ---
+[2026-06-30 09:52:52] [program2] Extracted metadata for: C:\Users\bruel\Documents\mp3\Ankino.mp3 (Title: 'Bodo', Artist: '')
+[2026-06-30 09:52:53] [RabbitMQ] [RABBITMQ] Publish to 'mp3.metadata': {"path":"C:\\Users\\bruel\\Documents\\mp3\\Ankino.mp3","title":"Bodo","album":"Album Bodo","genre":"Pop","artist":"","duration":231,"year":2000}
+[2026-06-30 09:52:53] [program3] [RABBITMQ] Consume metadata for: Bodo (File: C:\Users\bruel\Documents\mp3\Ankino.mp3)
+[2026-06-30 09:52:53] [Program2] [RABBITMQ] Publish metadata to mp3.metadata for: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:52:53] [program3] API POST Bodo - Status: 200
+[2026-06-30 09:52:53] [program3] ✅ Upload success: Bodo
+[2026-06-30 09:52:53] [program3] 🗑 Deleted original file: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:52:53] [program3] [RABBITMQ] ACK message for: Bodo
+[2026-06-30 09:53:27] [program1] [BLACKLIST] Suppression du fichier : C:\Users\bruel\Documents\mp3\Antanambao.MP3 (Artiste/Genre banni: Bekoto Augustin)
+[2026-06-30 09:53:28] [program1] [BLACKLIST] Suppression du fichier : C:\Users\bruel\Documents\mp3\IAO.MP3 (Artiste/Genre banni: ROSSY)
+[2026-06-30 09:53:28] [program1] --- Started folder scan: C:\Users\bruel\Documents\mp3 ---
+[2026-06-30 09:53:28] [Program1] [RABBITMQ] Requesting publish for file path: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:53:28] [RabbitMQ] [RABBITMQ] Publish to 'mp3.files': C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:53:28] [Program2] [RABBITMQ] Consume from queue: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:53:28] [program2] Extracted metadata for: C:\Users\bruel\Documents\mp3\Ankino.mp3 (Title: 'Bodo', Artist: '')
+[2026-06-30 09:53:28] [RabbitMQ] [RABBITMQ] Publish to 'mp3.metadata': {"path":"C:\\Users\\bruel\\Documents\\mp3\\Ankino.mp3","title":"Bodo","album":"Album Bodo","genre":"Pop","artist":"","duration":231,"year":2000}
+[2026-06-30 09:53:28] [program3] [RABBITMQ] Consume metadata for: Bodo (File: C:\Users\bruel\Documents\mp3\Ankino.mp3)
+[2026-06-30 09:53:28] [Program2] [RABBITMQ] Publish metadata to mp3.metadata for: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:53:28] [Program1] [RABBITMQ] Successfully requested publish for: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:53:28] [program1] --- Folder scan complete. Found 1 files. ---
+[2026-06-30 09:53:28] [program3] API POST Bodo - Status: 200
+[2026-06-30 09:53:28] [program3] ✅ Upload success: Bodo
+[2026-06-30 09:53:28] [program3] 🗑 Deleted original file: C:\Users\bruel\Documents\mp3\Ankino.mp3
+[2026-06-30 09:53:28] [program3] [RABBITMQ] ACK message for: Bodo
+[2026-06-30 09:54:27] [program1] --- Started folder scan: C:\Users\bruel\Documents\mp3 ---
+[2026-06-30 09:54:27] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 09:55:27] [program1] --- Started folder scan: C:\Users\bruel\Documents\mp3 ---
+[2026-06-30 09:55:27] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 09:56:27] [program1] --- Started folder scan: C:\Users\bruel\Documents\mp3 ---
+[2026-06-30 09:56:27] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 09:57:27] [program1] --- Started folder scan: C:\Users\bruel\Documents\mp3 ---
+[2026-06-30 09:57:27] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 09:58:27] [program1] --- Started folder scan: C:\Users\bruel\Documents\mp3 ---
+[2026-06-30 09:58:27] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 09:59:27] [program1] --- Started folder scan: C:\Users\bruel\Documents\mp3 ---
+[2026-06-30 09:59:27] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 10:00:27] [program1] --- Started folder scan: C:\Users\bruel\Documents\mp3 ---
+[2026-06-30 10:00:27] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 10:01:27] [program1] --- Started folder scan: C:\Users\bruel\Documents\mp3 ---
+[2026-06-30 10:01:27] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 10:02:27] [program1] --- Started folder scan: C:\Users\bruel\Documents\mp3 ---
+[2026-06-30 10:02:27] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 10:03:27] [program1] --- Started folder scan: C:\Users\bruel\Documents\mp3 ---
+[2026-06-30 10:03:27] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 10:04:27] [program1] --- Started folder scan: C:\Users\bruel\Documents\mp3 ---
+[2026-06-30 10:04:27] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 10:05:27] [program1] --- Started folder scan: C:\Users\bruel\Documents\mp3 ---
+[2026-06-30 10:05:27] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 10:06:28] [program1] --- Started folder scan: C:\Users\bruel\Documents\mp3 ---
+[2026-06-30 10:06:28] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 10:06:37] [program1] [BLACKLIST] Suppression du fichier : C:\Users\bruel\Downloads\Compressed\mp3\mp3\Antanambao.MP3 (Artiste/Genre banni: Bekoto Augustin)
+[2026-06-30 10:06:37] [program1] [BLACKLIST] Suppression du fichier : C:\Users\bruel\Downloads\Compressed\mp3\mp3\IAO.MP3 (Artiste/Genre banni: ROSSY)
+[2026-06-30 10:06:37] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 10:06:37] [Program1] [RABBITMQ] Requesting publish for file path: C:\Users\bruel\Downloads\Compressed\mp3\mp3\Ankino.mp3
+[2026-06-30 10:06:37] [RabbitMQ] [RABBITMQ] Publish to 'mp3.files': C:\Users\bruel\Downloads\Compressed\mp3\mp3\Ankino.mp3
+[2026-06-30 10:06:37] [Program2] [RABBITMQ] Consume from queue: C:\Users\bruel\Downloads\Compressed\mp3\mp3\Ankino.mp3
+[2026-06-30 10:06:37] [Program1] [RABBITMQ] Successfully requested publish for: C:\Users\bruel\Downloads\Compressed\mp3\mp3\Ankino.mp3
+[2026-06-30 10:06:37] [program1] --- Folder scan complete. Found 1 files. ---
+[2026-06-30 10:06:37] [program2] Extracted metadata for: C:\Users\bruel\Downloads\Compressed\mp3\mp3\Ankino.mp3 (Title: 'Bodo', Artist: '')
+[2026-06-30 10:06:37] [RabbitMQ] [RABBITMQ] Publish to 'mp3.metadata': {"path":"C:\\Users\\bruel\\Downloads\\Compressed\\mp3\\mp3\\Ankino.mp3","title":"Bodo","album":"Album Bodo","genre":"Pop","artist":"","duration":231,"year":2000}
+[2026-06-30 10:06:37] [program3] [RABBITMQ] Consume metadata for: Bodo (File: C:\Users\bruel\Downloads\Compressed\mp3\mp3\Ankino.mp3)
+[2026-06-30 10:06:37] [Program2] [RABBITMQ] Publish metadata to mp3.metadata for: C:\Users\bruel\Downloads\Compressed\mp3\mp3\Ankino.mp3
+[2026-06-30 10:06:37] [program3] API POST Bodo - Status: 200
+[2026-06-30 10:06:37] [program3] ✅ Upload success: Bodo
+[2026-06-30 10:06:37] [program3] 🗑 Deleted original file: C:\Users\bruel\Downloads\Compressed\mp3\mp3\Ankino.mp3
+[2026-06-30 10:06:37] [program3] [RABBITMQ] ACK message for: Bodo
+[2026-06-30 10:07:27] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 10:07:27] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 10:08:27] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 10:08:27] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 10:09:27] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 10:09:27] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 10:10:27] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 10:10:27] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 10:11:27] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 10:11:27] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 10:12:27] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 10:12:27] [program1] --- Folder scan complete. Found 0 files. ---

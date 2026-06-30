@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.mixeo</groupId>
+        <artifactId>mixeo-java-suite</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>mixeo-uploader</artifactId>
+    <name>Mixeo.UploaderJava</name>
+    <description>Worker console : consomme mp3.metadata et POST vers l'API (= Mixeo.Uploader en C#)</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.mixeo</groupId>
+            <artifactId>mixeo-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.rabbitmq</groupId>
+            <artifactId>amqp-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Permet 'mvn -pl uploader exec:java' pour lancer le worker -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.4.1</version>
+                <configuration>
+                    <mainClass>com.mixeo.uploader.Main</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

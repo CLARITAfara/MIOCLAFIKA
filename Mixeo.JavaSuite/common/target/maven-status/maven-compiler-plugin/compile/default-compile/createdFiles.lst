@@ -1,0 +1,4 @@
+com\mixeo\common\RabbitConfig.class
+com\mixeo\common\RabbitPublisher.class
+com\mixeo\common\FileLogger.class
+com\mixeo\common\Mp3Metadata.class
