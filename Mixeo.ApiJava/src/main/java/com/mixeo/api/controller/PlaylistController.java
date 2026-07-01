@@ -1,5 +1,6 @@
 package com.mixeo.api.controller;
 
+import com.mixeo.api.dto.MergePlaylistDto;
 import com.mixeo.api.dto.PlaylistCriteriaDto;
 import com.mixeo.api.dto.ReplaceTrackDto;
 import com.mixeo.api.dto.SavePlaylistDto;
@@ -177,6 +178,47 @@ public class PlaylistController {
         }
 
         return ResponseEntity.ok(reload(playlist.getId()));
+    }
+
+    // 2.5 FUSION DE PLAYLISTS
+    @PostMapping("/merge")
+    public ResponseEntity<?> merge(@RequestBody MergePlaylistDto dto) {
+        if (dto.getPlaylistIds() == null || dto.getPlaylistIds().size() < 2) {
+            return ResponseEntity.badRequest().body("Sélectionnez au moins 2 playlists à fusionner.");
+        }
+        if (dto.getNewName() == null || dto.getNewName().isBlank()) {
+            return ResponseEntity.badRequest().body("Le nom de la nouvelle playlist est requis.");
+        }
+
+        Set<Integer> mp3IdSet = new LinkedHashSet<>();
+        for (Integer playlistId : dto.getPlaylistIds()) {
+            Optional<Playlist> p = playlists.findById(playlistId);
+            if (p.isEmpty()) continue;
+            playlistTracks.findByPlaylistId(playlistId).forEach(t -> mp3IdSet.add(t.getMp3Id()));
+        }
+
+        if (mp3IdSet.isEmpty()) {
+            return ResponseEntity.badRequest().body("Aucun morceau trouvé dans les playlists sélectionnées.");
+        }
+
+        List<Mp3File> tracks = mp3Files.findAllById(mp3IdSet);
+        int totalDuration = tracks.stream().mapToInt(t -> t.getDuration() == null ? 0 : t.getDuration()).sum();
+
+        Playlist merged = new Playlist();
+        merged.setName(dto.getNewName().trim());
+        merged.setTotalDuration(totalDuration);
+        merged.setUserId(dto.getUserId());
+        merged.setCreatedAt(LocalDateTime.now());
+        playlists.saveAndFlush(merged);
+
+        for (Integer mp3Id : mp3IdSet) {
+            PlaylistTrack pt = new PlaylistTrack();
+            pt.setPlaylistId(merged.getId());
+            pt.setMp3Id(mp3Id);
+            playlistTracks.save(pt);
+        }
+
+        return ResponseEntity.ok(reload(merged.getId()));
     }
 
     // 3. GET PLAYLISTS BY USER ID

@@ -15,6 +15,7 @@
         <module>common</module>
         <module>uploader</module>
         <module>desktop</module>
+        <module>deleter</module>
     </modules>
 
     <properties>

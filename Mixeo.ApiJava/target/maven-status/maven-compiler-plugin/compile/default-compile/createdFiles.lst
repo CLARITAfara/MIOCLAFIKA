@@ -19,3 +19,4 @@ com\mixeo\api\MixeoApiApplication.class
 com\mixeo\api\repository\UserRepository.class
 com\mixeo\api\repository\PlaylistTrackRepository.class
 com\mixeo\api\dto\PlaylistCriteriaDto.class
+com\mixeo\api\dto\MergePlaylistDto.class

@@ -127,15 +127,20 @@ export const PlaylistBuilder: React.FC = () => {
     // Lyrics Modal
     const [lyricsModal, setLyricsModal] = useState({ open: false, trackId: null as number | null, title: '', text: '', loading: false });
 
+    // Merge
+    const [selectedForMerge, setSelectedForMerge] = useState<Set<number>>(new Set());
+    const [mergeModalOpen, setMergeModalOpen] = useState(false);
+    const [mergeName, setMergeName] = useState('');
+    const [mergeError, setMergeError] = useState('');
+
     useEffect(() => {
         fetchSavedPlaylists();
         fetchAllMp3Files();
     }, []);
 
     const fetchSavedPlaylists = async () => {
-        if (!user) return;
         try {
-            const res = await fetch(`${API_URL}?userId=${user.id}`);
+            const res = await fetch(API_URL);
             if (res.ok) {
                 const data = await res.json();
                 setSavedPlaylists(data);
@@ -331,6 +336,61 @@ export const PlaylistBuilder: React.FC = () => {
         }
     };
 
+    // MERGE HANDLERS
+    const toggleMergeSelect = (e: React.MouseEvent, id: number) => {
+        e.stopPropagation();
+        setSelectedForMerge(prev => {
+            const next = new Set(prev);
+            if (next.has(id)) next.delete(id); else next.add(id);
+            return next;
+        });
+    };
+
+    const openMergeModal = () => {
+        setMergeError('');
+        setMergeName('');
+        setMergeModalOpen(true);
+    };
+
+    const handleMerge = async () => {
+        if (selectedForMerge.size < 2) {
+            setMergeError('Sélectionnez au moins 2 playlists dans la liste.');
+            return;
+        }
+        if (!mergeName.trim()) {
+            setMergeError('Donnez un nom à la nouvelle playlist.');
+            return;
+        }
+        setLoading(true);
+        setMergeError('');
+        try {
+            const res = await fetch(`${API_URL}/merge`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    playlistIds: Array.from(selectedForMerge),
+                    newName: mergeName.trim(),
+                    userId: user?.id ?? null,
+                }),
+            });
+            if (res.ok) {
+                const data = await res.json();
+                setMergeModalOpen(false);
+                setMergeName('');
+                setSelectedForMerge(new Set());
+                fetchSavedPlaylists();
+                setActivePlaylist(data);
+            } else {
+                const msg = await res.text();
+                setMergeError(msg || 'Erreur lors de la fusion.');
+            }
+        } catch {
+            setMergeError('Erreur réseau.');
+        } finally {
+            setLoading(false);
+        }
+    };
+
     // 7. FULL PLAYLIST PLAYER
     const getTrackList = useCallback((): Mp3File[] => {
         if (activePlaylist) return (activePlaylist.tracks || []).map(t => t.mp3File!).filter(Boolean);
@@ -470,7 +530,16 @@ export const PlaylistBuilder: React.FC = () => {
         <div style={s.root}>
             {/* Left sidebar: Saved Playlists */}
             <div style={s.playlistListCol}>
-                <h2 style={s.sidebarHeading}>Vos Playlists</h2>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 14px 10px' }}>
+                    <h2 style={{ ...s.sidebarHeading, padding: 0, margin: 0 }}>Playlists</h2>
+                    <button
+                        onClick={openMergeModal}
+                        style={{ ...s.btnPrimary, padding: '4px 10px', fontSize: 11 }}
+                        title="Fusionner des playlists sélectionnées"
+                    >
+                        ⊕ Fusionner
+                    </button>
+                </div>
                 <div style={s.playlistContainer}>
                     {savedPlaylists.map(p => (
                         <div
@@ -481,28 +550,41 @@ export const PlaylistBuilder: React.FC = () => {
                             }}
                             style={{
                                 ...s.playlistCard,
-                                ...(activePlaylist?.id === p.id ? s.playlistCardActive : {})
+                                ...(activePlaylist?.id === p.id ? s.playlistCardActive : {}),
+                                ...(selectedForMerge.has(p.id) ? { borderColor: 'rgba(100,180,255,0.5)', background: 'rgba(100,180,255,0.05)' } : {})
                             }}
                         >
+                            <input
+                                type="checkbox"
+                                checked={selectedForMerge.has(p.id)}
+                                onClick={(e) => toggleMergeSelect(e, p.id)}
+                                onChange={() => {}}
+                                style={{ marginRight: 8, cursor: 'pointer', accentColor: '#6ab3f5', flexShrink: 0 }}
+                                title="Sélectionner pour fusionner"
+                            />
                             <div style={s.playlistInfo}>
                                 <span style={s.playlistName}>{p.name}</span>
                                 <span style={s.playlistMeta}>
                                     {p.tracks?.length || 0} morceaux • {formatDuration(p.totalDuration)}
+                                    {p.userId && p.userId !== user?.id ? <span style={{ color: '#555', marginLeft: 4 }}>· user {p.userId}</span> : ''}
                                 </span>
                             </div>
-                            <button
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    handleDeletePlaylist(p.id);
-                                }}
-                                style={s.deleteCardBtn}
-                            >
-                                ✕
-                            </button>
+                            {(!p.userId || p.userId === user?.id) && (
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        handleDeletePlaylist(p.id);
+                                    }}
+                                    style={s.deleteCardBtn}
+                                    title="Supprimer"
+                                >
+                                    ✕
+                                </button>
+                            )}
                         </div>
                     ))}
                     {savedPlaylists.length === 0 && (
-                        <p style={{ color: '#555', fontSize: 12, padding: '10px 14px' }}>Aucune playlist sauvegardée.</p>
+                        <p style={{ color: '#555', fontSize: 12, padding: '10px 14px' }}>Aucune playlist.</p>
                     )}
                 </div>
             </div>
@@ -1022,6 +1104,51 @@ export const PlaylistBuilder: React.FC = () => {
                                         </button>
                                     </div>
                                 ))}
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Merge Modal */}
+            {mergeModalOpen && (
+                <div style={s.modalOverlay}>
+                    <div style={{ ...s.modalContent, maxWidth: 420 }}>
+                        <div style={s.modalHeader}>
+                            <h3 style={{ margin: 0, fontSize: 15 }}>Fusionner des playlists</h3>
+                            <button onClick={() => setMergeModalOpen(false)} style={s.closeModalBtn}>✕</button>
+                        </div>
+                        <div style={{ padding: '12px 0 4px', fontSize: 12, color: '#888' }}>
+                            Cochez les playlists dans la liste à gauche, puis donnez un nom à la fusion.
+                        </div>
+                        <div style={{ padding: '8px 0', fontSize: 12 }}>
+                            <strong style={{ color: selectedForMerge.size >= 2 ? '#6ab3f5' : '#aaa' }}>
+                                {selectedForMerge.size} playlist{selectedForMerge.size !== 1 ? 's' : ''} sélectionnée{selectedForMerge.size !== 1 ? 's' : ''}
+                            </strong>
+                            {selectedForMerge.size > 0 && selectedForMerge.size < 2 && (
+                                <span style={{ color: '#f0a040', marginLeft: 8 }}>→ sélectionnez-en au moins 2</span>
+                            )}
+                        </div>
+                        <input
+                            type="text"
+                            value={mergeName}
+                            onChange={e => { setMergeName(e.target.value); setMergeError(''); }}
+                            placeholder="Nom de la nouvelle playlist..."
+                            style={{ ...s.modalSearchInput, marginBottom: 8 }}
+                            autoFocus
+                            onKeyDown={e => e.key === 'Enter' && handleMerge()}
+                        />
+                        {mergeError && (
+                            <div style={{ fontSize: 12, color: '#ef4444', marginBottom: 8 }}>{mergeError}</div>
+                        )}
+                        <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 8 }}>
+                            <button onClick={() => setMergeModalOpen(false)} style={s.btnSecondary}>Annuler</button>
+                            <button
+                                onClick={handleMerge}
+                                disabled={loading}
+                                style={{ ...s.btnPrimary, opacity: loading ? 0.5 : 1 }}
+                            >
+                                {loading ? 'Fusion...' : 'Créer la playlist fusionnée'}
+                            </button>
                         </div>
                     </div>
                 </div>
