@@ -1,0 +1,117 @@
+[2026-06-30 15:23:28] [program3] Listening on queue: mp3.metadata
+[2026-06-30 15:24:05] [program2] Program 2 worker starting...
+[2026-06-30 15:24:05] [program2] Program 2 worker is listening on queue: mp3.files
+[2026-06-30 15:37:10] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 15:37:10] [Program1] [RABBITMQ] Requesting publish for file path: C:\Users\bruel\Downloads\Compressed\mp3\mp3\Ankino.mp3
+[2026-06-30 15:37:10] [RabbitMQ] [RABBITMQ] Publish to 'mp3.files': C:\Users\bruel\Downloads\Compressed\mp3\mp3\Ankino.mp3
+[2026-06-30 15:37:10] [Program2] [RABBITMQ] Consume from queue: C:\Users\bruel\Downloads\Compressed\mp3\mp3\Ankino.mp3
+[2026-06-30 15:37:10] [program2] Extracted metadata for: C:\Users\bruel\Downloads\Compressed\mp3\mp3\Ankino.mp3 (Title: 'Bodo', Artist: '')
+[2026-06-30 15:37:10] [RabbitMQ] [RABBITMQ] Publish to 'mp3.metadata': {"path":"C:\\Users\\bruel\\Downloads\\Compressed\\mp3\\mp3\\Ankino.mp3","title":"Bodo","album":"Album Bodo","genre":"Pop","artist":"","duration":231,"year":2000}
+[2026-06-30 15:37:10] [Program2] [RABBITMQ] Publish metadata to mp3.metadata for: C:\Users\bruel\Downloads\Compressed\mp3\mp3\Ankino.mp3
+[2026-06-30 15:37:10] [Program1] [RABBITMQ] Successfully requested publish for: C:\Users\bruel\Downloads\Compressed\mp3\mp3\Ankino.mp3
+[2026-06-30 15:37:10] [Program1] [RABBITMQ] Requesting publish for file path: C:\Users\bruel\Downloads\Compressed\mp3\mp3\Antanambao.MP3
+[2026-06-30 15:37:10] [RabbitMQ] [RABBITMQ] Publish to 'mp3.files': C:\Users\bruel\Downloads\Compressed\mp3\mp3\Antanambao.MP3
+[2026-06-30 15:37:10] [Program2] [RABBITMQ] Consume from queue: C:\Users\bruel\Downloads\Compressed\mp3\mp3\Antanambao.MP3
+[2026-06-30 15:37:10] [Program1] [RABBITMQ] Successfully requested publish for: C:\Users\bruel\Downloads\Compressed\mp3\mp3\Antanambao.MP3
+[2026-06-30 15:37:10] [Program1] [RABBITMQ] Requesting publish for file path: C:\Users\bruel\Downloads\Compressed\mp3\mp3\IAO.MP3
+[2026-06-30 15:37:10] [program2] Extracted metadata for: C:\Users\bruel\Downloads\Compressed\mp3\mp3\Antanambao.MP3 (Title: 'Antanambao', Artist: 'Bekoto Augustin')
+[2026-06-30 15:37:10] [RabbitMQ] [RABBITMQ] Publish to 'mp3.files': C:\Users\bruel\Downloads\Compressed\mp3\mp3\IAO.MP3
+[2026-06-30 15:37:10] [RabbitMQ] [RABBITMQ] Publish to 'mp3.metadata': {"path":"C:\\Users\\bruel\\Downloads\\Compressed\\mp3\\mp3\\Antanambao.MP3","title":"Antanambao","album":"Album Bekoto","genre":"Folk","artist":"Bekoto Augustin","duration":175,"year":1980}
+[2026-06-30 15:37:10] [Program1] [RABBITMQ] Successfully requested publish for: C:\Users\bruel\Downloads\Compressed\mp3\mp3\IAO.MP3
+[2026-06-30 15:37:10] [program1] --- Folder scan complete. Found 3 files. ---
+[2026-06-30 15:37:10] [Program2] [RABBITMQ] Publish metadata to mp3.metadata for: C:\Users\bruel\Downloads\Compressed\mp3\mp3\Antanambao.MP3
+[2026-06-30 15:37:10] [Program2] [RABBITMQ] Consume from queue: C:\Users\bruel\Downloads\Compressed\mp3\mp3\IAO.MP3
+[2026-06-30 15:37:10] [program2] Extracted metadata for: C:\Users\bruel\Downloads\Compressed\mp3\mp3\IAO.MP3 (Title: 'IAO', Artist: 'ROSSY')
+[2026-06-30 15:37:10] [RabbitMQ] [RABBITMQ] Publish to 'mp3.metadata': {"path":"C:\\Users\\bruel\\Downloads\\Compressed\\mp3\\mp3\\IAO.MP3","title":"IAO","album":"IAO","genre":"salegy","artist":"ROSSY","duration":229,"year":1990}
+[2026-06-30 15:37:10] [Program2] [RABBITMQ] Publish metadata to mp3.metadata for: C:\Users\bruel\Downloads\Compressed\mp3\mp3\IAO.MP3
+[2026-06-30 15:37:11] [program3] [RABBITMQ] Consume metadata for: Bodo (File: C:\Users\bruel\Downloads\Compressed\mp3\mp3\Ankino.mp3)
+[2026-06-30 15:37:11] [program3] API POST Bodo - Status: 200
+[2026-06-30 15:37:11] [program3] ✅ Upload success: Bodo
+[2026-06-30 15:37:11] [program3] 🗑 Deleted original file: C:\Users\bruel\Downloads\Compressed\mp3\mp3\Ankino.mp3
+[2026-06-30 15:37:11] [program3] [RABBITMQ] ACK message for: Bodo
+[2026-06-30 15:37:11] [program3] [RABBITMQ] Consume metadata for: Antanambao (File: C:\Users\bruel\Downloads\Compressed\mp3\mp3\Antanambao.MP3)
+[2026-06-30 15:37:11] [program3] API POST Antanambao - Status: 200
+[2026-06-30 15:37:11] [program3] ✅ Upload success: Antanambao
+[2026-06-30 15:37:11] [program3] 🗑 Deleted original file: C:\Users\bruel\Downloads\Compressed\mp3\mp3\Antanambao.MP3
+[2026-06-30 15:37:11] [program3] [RABBITMQ] ACK message for: Antanambao
+[2026-06-30 15:37:11] [program3] [RABBITMQ] Consume metadata for: IAO (File: C:\Users\bruel\Downloads\Compressed\mp3\mp3\IAO.MP3)
+[2026-06-30 15:37:11] [program3] API POST IAO - Status: 200
+[2026-06-30 15:37:11] [program3] ✅ Upload success: IAO
+[2026-06-30 15:37:11] [program3] 🗑 Deleted original file: C:\Users\bruel\Downloads\Compressed\mp3\mp3\IAO.MP3
+[2026-06-30 15:37:11] [program3] [RABBITMQ] ACK message for: IAO
+[2026-06-30 15:38:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 15:38:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 15:39:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 15:39:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 15:40:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 15:40:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 15:41:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 15:41:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 15:42:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 15:42:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 15:43:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 15:43:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 15:44:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 15:44:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 15:45:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 15:45:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 15:46:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 15:46:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 15:47:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 15:47:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 15:48:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 15:48:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 15:49:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 15:49:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 15:50:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 15:50:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 15:51:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 15:51:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 15:52:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 15:52:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 15:53:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 15:53:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 15:54:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 15:54:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 15:55:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 15:55:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 15:56:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 15:56:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 15:57:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 15:57:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 15:58:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 15:58:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 15:59:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 15:59:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 16:00:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 16:00:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 16:01:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 16:01:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 16:02:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 16:02:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 16:03:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 16:03:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 16:04:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 16:04:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 16:05:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 16:05:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 16:06:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 16:06:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 16:07:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 16:07:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 16:08:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 16:08:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 16:09:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 16:09:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 16:10:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 16:10:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 16:11:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 16:11:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 16:12:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 16:12:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 16:13:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 16:13:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 16:14:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 16:14:05] [program1] --- Folder scan complete. Found 0 files. ---
+[2026-06-30 16:15:05] [program1] --- Started folder scan: C:\Users\bruel\Downloads\Compressed\mp3\mp3 ---
+[2026-06-30 16:15:05] [program1] --- Folder scan complete. Found 0 files. ---
